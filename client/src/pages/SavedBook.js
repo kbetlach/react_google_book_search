@@ -6,7 +6,7 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-function Books() {
+function SavedBook() {
   // Setting our component's initial state
   const [books, setBooks] = useState([])
   const [formObject, setFormObject] = useState({})
@@ -56,37 +56,22 @@ function Books() {
     return (
       <Container fluid>
         <Row>
-          <Col size="md-6">
+            
+            <Col size="md-1"></Col>
+          <Col size="md-10">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <u><h1>React Google Book Search</h1></u>
+              <br />
+              <h3>Search for and save books!</h3>
             </Jumbotron>
-            <form>
-              <Input
-                onChange={handleInputChange}
-                name="title"
-                placeholder="Title (required)"
-              />
-              <Input
-                onChange={handleInputChange}
-                name="author"
-                placeholder="Author (required)"
-              />
-              <TextArea
-                onChange={handleInputChange}
-                name="synopsis"
-                placeholder="Synopsis (Optional)"
-              />
-              <FormBtn
-                disabled={!(formObject.author && formObject.title)}
-                onClick={handleFormSubmit}
-              >
-                Submit Book
-              </FormBtn>
-            </form>
+
           </Col>
-          <Col size="md-6 sm-12">
+          <Col size="md-1"></Col>
+          
+          <Col size="md-1"></Col>
+          <Col size="md-10">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>Saved Books</h1>
             </Jumbotron>
             {books.length ? (
               <List>
@@ -107,10 +92,11 @@ function Books() {
               <h3>No Results to Display</h3>
             )}
           </Col>
+          <Col size="md-1"></Col>
         </Row>
       </Container>
     );
   }
 
 
-export default Books;
+export default SavedBook;
