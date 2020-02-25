@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import DeleteBtn from "../components/DeleteBtn/";
+import Card from "../components/Card/";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
 
 function SavedBook() {
   // Setting our component's initial state
@@ -71,27 +71,29 @@ function SavedBook() {
           <Col size="md-1"></Col>
           <Col size="md-10">
             <Jumbotron>
-              <h1>Saved Books</h1>
-            </Jumbotron>
+              <u><h1>Your Saved Books</h1></u>
+            
             {books.length ? (
               <List>
-                {books.map(book => {
-                  return (
-                    <ListItem key={book._id}>
-                      <a href={"/books/" + book._id}>
-                        <strong>
-                          {book.title} by {book.author}
-                        </strong>
-                      </a>
-                      <DeleteBtn onClick={() => deleteBook(book._id)} />
-                    </ListItem>
-                  );
-                })}
+                {books.length ? (
+                  <List>
+                {books.map(book => (
+                  <ListItem key={book._id}>
+                    <DeleteBtn onClick={() => deleteBook(book._id)} />
+                    <Card title={book.title} img={book.img} author={book.author} descripion={book.description} link={book.link} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+                <h3>No Results to Display</h3>
+              )}
               </List>
             ) : (
               <h3>No Results to Display</h3>
             )}
+            </Jumbotron>
           </Col>
+
           <Col size="md-1"></Col>
         </Row>
       </Container>

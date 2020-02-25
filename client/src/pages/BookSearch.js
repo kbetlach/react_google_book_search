@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import DeleteBtn from "../components/DeleteBtn/";
+import Card from "../components/Card/";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
@@ -25,6 +26,13 @@ function BookSearch() {
       .catch(err => console.log(err));
   };
 
+    // Deletes a book from the database with a given id, then reloads books from the db
+    function deleteBook(id) {
+      API.deleteBook(id)
+        .then(res => loadBooks())
+        .catch(err => console.log(err));
+    }
+
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -45,6 +53,10 @@ function BookSearch() {
         .catch(err => console.log(err));
     }
   };
+
+  //axios call here? https://www.googleapis.com/books/v1/volumes?q=search+terms
+  //https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=yourAPIKey
+  // MY KEY: AIzaSyDL1_1UfWL73qKRX4O9wk5iyCLI4lYJnZg
 
     return (
       <Container fluid>
@@ -86,6 +98,19 @@ function BookSearch() {
         <Col size="md-10">
             <Jumbotron>
                 <h1>Results</h1>
+                
+                {books.length ? (
+                  <List>
+                {books.map(book => (
+                  <ListItem key={book._id}>
+                    <DeleteBtn onClick={() => deleteBook(book._id)} />
+                    <Card title={book.title} img={book.img} author={book.author} descripion={book.description} link={book.link} />
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+                <h3>No Results to Display</h3>
+              )}
             </Jumbotron>
             </Col>
         <Col size="md-1"></Col>
