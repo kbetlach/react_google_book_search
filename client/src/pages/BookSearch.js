@@ -56,7 +56,6 @@ function BookSearch() {
 
   //axios call here? https://www.googleapis.com/books/v1/volumes?q=search+terms
   //https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=yourAPIKey
-  // MY KEY: AIzaSyDL1_1UfWL73qKRX4O9wk5iyCLI4lYJnZg
 
     return (
       <Container fluid>
