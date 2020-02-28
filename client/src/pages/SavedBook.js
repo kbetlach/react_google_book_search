@@ -9,7 +9,6 @@ import { List, ListItem } from "../components/List";
 function SavedBook() {
   // Setting our component's initial state
   const [books, setBooks] = useState([])
-  const [formObject, setFormObject] = useState({})
 
   // Load all books and store them with setBooks
   useEffect(() => {
@@ -32,27 +31,6 @@ function SavedBook() {
       .catch(err => console.log(err));
   }
 
-  // Handles updating component state when the user types into the input field
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
-  };
-
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.title && formObject.author) {
-      API.saveBook({
-        title: formObject.title,
-        author: formObject.author,
-        synopsis: formObject.synopsis
-      })
-        .then(res => loadBooks())
-        .catch(err => console.log(err));
-    }
-  };
-
     return (
       <Container fluid>
         <Row>
@@ -70,27 +48,26 @@ function SavedBook() {
           
           <Col size="md-1"></Col>
           <Col size="md-10">
-            <Jumbotron>
-              <u><h1>Your Saved Books</h1></u>
-            
-            {books.length ? (
-              <List>
+           <Jumbotron>
+           <u><h1>Your Saved Books</h1></u>
+                <br />
                 {books.length ? (
                   <List>
                 {books.map(book => (
                   <ListItem key={book._id}>
                     <DeleteBtn onClick={() => deleteBook(book._id)} />
-                    <Card title={book.title} img={book.img} author={book.author} descripion={book.description} link={book.link} />
+
+                    <Card title={book.volumeInfo.title} 
+                    //img={book.volumeInfo.imageLinks.thumbnail} 
+                    author={book.volumeInfo.authors} 
+                    description={book.volumeInfo.description} 
+                    link={book.volumeInfo.link} />
                   </ListItem>
                 ))}
               </List>
             ) : (
                 <h3>No Results to Display</h3>
               )}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
             </Jumbotron>
           </Col>
 
