@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export default {
-//Google Books API call
   getApiBook: function(bookSearch) {
     return   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${bookSearch}`)
   },
@@ -19,6 +18,7 @@ export default {
   },
   // Saves a book to the database
   saveBook: function(bookData) {
+    console.log(bookData)
     return axios.post("/api/books", bookData);
   }
 };

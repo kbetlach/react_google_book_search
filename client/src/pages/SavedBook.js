@@ -55,13 +55,18 @@ function SavedBook() {
                   <List>
                 {books.map(book => (
                   <ListItem key={book._id}>
-                    <DeleteBtn onClick={() => deleteBook(book._id)} />
 
-                    <Card title={book.volumeInfo.title} 
-                    //img={book.volumeInfo.imageLinks.thumbnail} 
-                    author={book.volumeInfo.authors} 
-                    description={book.volumeInfo.description} 
-                    link={book.volumeInfo.link} />
+                    <DeleteBtn 
+                        onClick={() => deleteBook(book._id)} 
+                    />
+
+                    <Card
+                         title={book.title}
+                         author={book.author}
+                         synopsis={book.synopsis}
+                         link={book.link}
+                         image={book.image}
+                      />
                   </ListItem>
                 ))}
               </List>

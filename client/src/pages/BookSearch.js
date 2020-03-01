@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Jumbotron from "../components/Jumbotron";
+import SaveBtn from "../components/SaveBtn/";
 import Card from "../components/Card/";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
@@ -25,13 +26,6 @@ function BookSearch() {
       .catch(err => console.log(err));
   };
 
-    // Deletes a book from the database with a given id, then reloads books from the db
-    function deleteBook(id) {
-      API.deleteBook(id)
-        .then(res => loadBooks())
-        .catch(err => console.log(err));
-    }
-
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
     const { value } = event.target;
@@ -44,6 +38,19 @@ function BookSearch() {
       .then(res => {
         console.log(res)
          setBooks(res.data.items)})
+      .catch(err => console.log(err));
+  };
+
+  function handleBookSave({id, title, author, description, link, image}) {
+    console.log(id, title, author, description, link, image)
+
+    API.saveBook({
+      title: title,
+      author: author,
+      description: description,
+      link: link,
+      image: image
+    })
       .catch(err => console.log(err));
   };
 
@@ -90,14 +97,19 @@ function BookSearch() {
                   <List>
                 {books.map(book => (
                   <ListItem key={book._id}>
-                
-                    <Card title={book.volumeInfo.title} 
-                    //save and view buttons go here-ish
-                    //img={book.volumeInfo.imageLinks.smallThumbnail} 
-                    author={book.volumeInfo.authors} 
-                    description={book.volumeInfo.description} 
-                    link={book.volumeInfo.link} />
 
+                  <SaveBtn
+                    onClick={() => handleBookSave({id: book.id, title: book.volumeInfo.title, author: book.volumeInfo.authors[0], description: book.volumeInfo.description, link: book.volumeInfo.previewLink, image: book.volumeInfo.imageLinks.thumbnail})}
+                  />
+                  
+                  <Card
+                    key={book.id}
+                    title={book.volumeInfo.title}
+                    author={book.volumeInfo.authors}
+                    description={book.volumeInfo.description}
+                    link={book.volumeInfo.previewLink}
+                   // image={book.volumeInfo.imageLinks.thumbnail}
+                  />
                   </ListItem>
                 ))}
               </List>
