@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Jumbotron from "../components/Jumbotron";
 import SaveBtn from "../components/SaveBtn/";
 import Card from "../components/Card/";
@@ -11,20 +11,6 @@ function BookSearch() {
   // Setting our component's initial state
   const [books, setBooks] = useState([])
   const [bookSearch, setBookSearch] = useState("");
-
-  // Load all books and store them with setBooks
-  useEffect(() => {
-    loadBooks()
-  }, [])
-
-  // Loads all books and sets them to books
-  function loadBooks() {
-    API.getBooks()
-      .then(res => 
-        setBooks(res.data)
-      )
-      .catch(err => console.log(err));
-  };
 
   // Handles updating component state when the user types into the input field
   function handleInputChange(event) {
@@ -76,7 +62,7 @@ function BookSearch() {
               <Input
                 onChange={handleInputChange}
                 name="title"
-                placeholder="Title (required)"
+                placeholder="Search by book title or author"
               />
               <FormBtn
                 onClick={handleFormSubmit}
@@ -93,23 +79,27 @@ function BookSearch() {
         <Col size="md-10">
                 <u><h1>Results</h1></u>
                 <br />
-                {books.length ? (
+                {books ? (
                   <List>
                 {books.map(book => (
-                  <ListItem key={book._id}>
+                  <ListItem key={book.id}>
 
                   <SaveBtn
                     onClick={() => handleBookSave({id: book.id, title: book.volumeInfo.title, author: book.volumeInfo.authors[0], description: book.volumeInfo.description, link: book.volumeInfo.previewLink, image: book.volumeInfo.imageLinks.thumbnail})}
                   />
                   
-                  <Card
+                   <Card
                     key={book.id}
                     title={book.volumeInfo.title}
                     author={book.volumeInfo.authors}
                     description={book.volumeInfo.description}
                     link={book.volumeInfo.previewLink}
-                   // image={book.volumeInfo.imageLinks.thumbnail}
-                  />
+                    image={book.volumeInfo.imageLinks ? (
+                      <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title}/>
+                    ):(
+                      <p>No Image</p>
+                    )}
+                  /> 
                   </ListItem>
                 ))}
               </List>

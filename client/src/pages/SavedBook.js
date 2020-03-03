@@ -34,24 +34,13 @@ function SavedBook() {
     return (
       <Container fluid>
         <Row>
-            
-            <Col size="md-1"></Col>
-          <Col size="md-10">
-            <Jumbotron>
-              <u><h1>React Google Book Search</h1></u>
-              <br />
-              <h3>Search for and save books!</h3>
-            </Jumbotron>
-
-          </Col>
-          <Col size="md-1"></Col>
-          
+        
           <Col size="md-1"></Col>
           <Col size="md-10">
-           <Jumbotron>
-           <u><h1>Your Saved Books</h1></u>
+           <br />
+           <u><h1 className="text-center">Your Saved Books</h1></u>
                 <br />
-                {books.length ? (
+                {books ? (
                   <List>
                 {books.map(book => (
                   <ListItem key={book._id}>
@@ -65,7 +54,11 @@ function SavedBook() {
                          author={book.author}
                          synopsis={book.synopsis}
                          link={book.link}
-                         image={book.image}
+                       //  image={book.volumeInfo.imageLinks ? (
+                       //   <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title}/>
+                       // ):(
+                       //   <p>No Image</p>
+                       // )}
                       />
                   </ListItem>
                 ))}
@@ -73,7 +66,7 @@ function SavedBook() {
             ) : (
                 <h3>No Results to Display</h3>
               )}
-            </Jumbotron>
+   
           </Col>
 
           <Col size="md-1"></Col>

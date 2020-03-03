@@ -3,9 +3,9 @@ import "./style.css";
 
 function SaveBtn(props) {
   return (
-    <span className="save-btn" {...props} role="button" tabIndex="0">
+    <button className="btn btn-success" {...props} role="button" tabIndex="0">
       Save
-    </span>
+    </button>
   );
 }
 
