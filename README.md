@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Google Book Search
 
-## Available Scripts
+Deployed link: (https://react-google-book-search-kb.herokuapp.com/)
 
-In the project directory, you can run:
+<img width="1299" alt="book" src="https://user-images.githubusercontent.com/53587397/75921621-09d65b80-5e27-11ea-8cbc-e4fa6cd04c62.png">
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is a full stack MERN app that utilizes a Mongo database, a React.js front end, Express routing, and a Node.js server.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+It has two page components, a book search and a saved books page. The user lands on the book search page, where they can search any book by title or author, and utilizing the Google Books API, a search result populates the page. The user can then see the book, author, description, a thumbnail image, and a link to the book's entry on the Google Books API where more information is displayed. If the user likes any particular book, they can click the save button to save the book as an entry in the Mongo database.
 
-### `npm test`
+The user can then click the saved books button to be directed to a separate page. This page simply displays all books saved by the user. The save button from before is replaced by a delete button, and clicking this will remove the entry from the page as well as the Mongo database.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Give it a try!
 
-### `npm run build`
+## Technologies
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React.js
+- MongoDB
+- ExpressJS
+- Node.js
+- mLab / Heroku for deployment
+- HTML5 / CSS / JavaScript
+- Bootstrap
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Launch
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Nothing too fancy! Simply open it up with your favorite web browser to view it!
 
-### `npm run eject`
+## Sources and Inspiration
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I found this app to be fantastic practice putting the MERN stack to use, using the MVC folder paradigm. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I think my favorite part to figure out was how to get the information from the API onto the page for display. I decided to put it all into a list element, with Bootstrap cards on top of each other for each book entry. This is what it looks like in my BookSearch.js page component:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![code](https://user-images.githubusercontent.com/53587397/75921623-0c38b580-5e27-11ea-86a2-d6f72254bd28.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This was especially good practice for using a React frontend, and how to make that mesh with an API.
