@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Jumbotron from "../components/Jumbotron";
 import DeleteBtn from "../components/DeleteBtn/";
 import Card from "../components/Card/";
 import API from "../utils/API";
@@ -52,13 +51,13 @@ function SavedBook() {
                     <Card
                          title={book.title}
                          author={book.author}
-                         synopsis={book.synopsis}
+                         description={book.description}
                          link={book.link}
-                       //  image={book.volumeInfo.imageLinks ? (
-                       //   <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title}/>
-                       // ):(
-                       //   <p>No Image</p>
-                       // )}
+                         image={book.image ? (
+                          <img src={book.image} alt={book.title}/>
+                        ):(
+                          <p>No Image</p>
+                        )}
                       />
                   </ListItem>
                 ))}
