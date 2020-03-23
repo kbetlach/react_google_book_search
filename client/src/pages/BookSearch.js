@@ -6,6 +6,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
+import "../pages/pages.css";
 
 function BookSearch() {
   // Setting our component's initial state
@@ -46,7 +47,7 @@ function BookSearch() {
             <Col size="md-1"></Col>
           <Col size="md-10">
             <Jumbotron>
-              <u><h1>React Google Book Search</h1></u>
+              <h1>React Google Book Search</h1>
               <br />
               <h3>Search for and save books!</h3>
             </Jumbotron>
@@ -58,7 +59,8 @@ function BookSearch() {
         <Col size="md-1"></Col>
         <Col size="md-10">
             <form>
-            <h3>Book Search</h3>
+            <h2>Book Search</h2>
+            <br />
               <Input
                 onChange={handleInputChange}
                 name="title"
@@ -77,7 +79,7 @@ function BookSearch() {
         <Row>
         <Col size="md-1"></Col>
         <Col size="md-10">
-                <u><h1>Results</h1></u>
+                <h2>Results</h2>
                 <br />
                 {books ? (
                   <List>

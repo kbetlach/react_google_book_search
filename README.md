@@ -2,7 +2,7 @@
 
 Deployed link: (https://react-google-book-search-kb.herokuapp.com/)
 
-<img width="1299" alt="book" src="https://user-images.githubusercontent.com/53587397/75921621-09d65b80-5e27-11ea-8cbc-e4fa6cd04c62.png">
+<img width="1356" alt="Screen Shot 2020-03-23 at 11 15 11 AM" src="https://user-images.githubusercontent.com/53587397/77337934-9f169280-6cf7-11ea-91ba-461d8f277ae9.png">
 
 ## Introduction
 

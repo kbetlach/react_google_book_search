@@ -1,9 +1,10 @@
 import React from "react";
+import "../Nav/index.css"
 
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg bg-dark text-light">
-        <h2>Google Books</h2>
+        <h3>Google Books</h3>
 
         <a className="nav-link" href="/">
         Book Search

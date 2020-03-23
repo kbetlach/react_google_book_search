@@ -4,6 +4,7 @@ import Card from "../components/Card/";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
+import "../pages/pages.css";
 
 function SavedBook() {
   // Setting our component's initial state

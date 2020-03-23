@@ -1,0 +1,16 @@
+body, html {
+    background-image: url(../images/book2.png);
+    font-family: 'Dosis', sans-serif;
+}
+
+h1, h2 {
+    color: white;
+    text-decoration: underline;
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+}
+
+h3 {
+    color: white;
+    font-family: 'Dosis', sans-serif;
+}

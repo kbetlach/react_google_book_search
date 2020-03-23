@@ -11,9 +11,9 @@ function Card({title, author, description, link, image}) {
 
       <div className="col-md-10">
           <div className="card-body">
-          <h3 className="card-title">{title}</h3>
-          <p className="card-text">by: {author}</p>
-          <p className="card-text">{description}</p>
+          <h4 className="card-title">{title}</h4>
+          <p className="card-text"><u>by: {author}</u></p>
+          <p className="card-text">"{description}"</p>
           <a className="btn"href={link} target="_blank" rel="noopener noreferrer">Click here for book details</a>
         </div>
       </div>
