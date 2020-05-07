@@ -1,3 +1,44 @@
 a {
     font-family: 'Dosis', sans-serif;
 }
+
+/*MEDIA QUERIES==================================================*/
+
+@media (max-width: 768px) {
+    .nav-link {
+      padding: 0;
+    }
+
+    #searchTab {
+        position: relative;
+        left: 150px;
+    }
+}
+
+@media (max-width: 414px) {
+    #searchTab {
+        position: relative;
+        left: 0px;
+    }
+}
+
+@media (max-width: 411px) {
+    #searchTab {
+        position: relative;
+        left: 0px;
+    }
+}
+
+@media (max-width: 360px) {
+    #searchTab {
+        position: relative;
+        left: 0px;
+    }
+}
+
+@media (max-width: 320px) {
+    #savedTab {
+        position: relative;
+        left: 203px;
+    }
+}
