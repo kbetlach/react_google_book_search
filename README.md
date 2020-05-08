@@ -24,10 +24,6 @@ Give it a try!
 - HTML5 / CSS / JavaScript
 - Bootstrap
 
-## Launch
-
-Nothing too fancy! Simply open it up with your favorite web browser to view it!
-
 ## Sources and Inspiration
 
 I found this app to be fantastic practice putting the MERN stack to use, using the MVC folder paradigm. 

@@ -49,15 +49,15 @@ function BookSearch() {
             <Jumbotron>
               <h1>React Google Book Search</h1>
               <br />
-              <h3>Search for and save books!</h3>
+              <h3>Search for books and save them to a favorite list!</h3>
             </Jumbotron>
             </Col>
             <Col size="md-1"></Col>
         </Row>
 
         <Row>
-        <Col size="md-1"></Col>
-        <Col size="md-10">
+        <Col size="md-3"></Col>
+        <Col size="md-6">
             <form>
             <h2>Book Search</h2>
             <br />
@@ -73,7 +73,7 @@ function BookSearch() {
               </FormBtn>
             </form>
           </Col>
-          <Col size="md-1"></Col>
+          <Col size="md-3"></Col>
         </Row>
 
         <Row>
