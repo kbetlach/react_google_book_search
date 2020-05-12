@@ -7,6 +7,8 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 import "../pages/pages.css";
+import toast from 'toasted-notes';
+import 'toasted-notes/src/styles.css';
 
 function BookSearch() {
   // Setting our component's initial state
@@ -87,7 +89,7 @@ function BookSearch() {
                   <ListItem key={book.id}>
 
                   <SaveBtn
-                    onClick={() => handleBookSave({id: book.id, title: book.volumeInfo.title, author: book.volumeInfo.authors[0], description: book.volumeInfo.description, link: book.volumeInfo.previewLink, image: book.volumeInfo.imageLinks.thumbnail})}
+                    onClick={() => handleBookSave({id: book.id, title: book.volumeInfo.title, author: book.volumeInfo.authors[0], description: book.volumeInfo.description, link: book.volumeInfo.previewLink, image: book.volumeInfo.imageLinks.thumbnail},toast.notify("Book saved successfully!"))}
                   />
                   
                    <Card
